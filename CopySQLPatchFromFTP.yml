@@ -1,6 +1,6 @@
 ---
 - name: Download SQL Patch
-  hosts: localhost
+  hosts: all
   tasks:
     - name: Download SQL Patch from the local FTP
       get_url:

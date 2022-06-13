@@ -1,7 +1,14 @@
 ---
-- name: test
+- name: Download SQL Patch
   hosts: localhost
-  
+  become: true
   tasks:
-    - name: test ping
-      ping:
+    - name: Check if the patch is already downloaded
+      stat:
+        path: /home/ansible_ftp/ftp/files/sqlserver2019-kb5011644-x64_a38427fc9ed638fdbc0011be2c71a7b32f811b9e.exe
+      register: file_check
+    - name: Download SQL Patch to the local FTP
+      get_url:
+        url: https://catalog.s.download.windowsupdate.com/d/msdownload/update/software/updt/2022/04/sqlserver2019-kb5011644-x64_a38427fc9ed638fdbc0011be2c71a7b32f811b9e.exe
+        dest: /home/ansible_ftp/ftp/files/
+      when: not file_check.stat.exists

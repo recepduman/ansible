@@ -1,7 +1,7 @@
 ---
 - name: Download SQL Patch
   hosts: localhost
-  become: true
+  #become: true
   tasks:
     - name: Check if the patch is already downloaded
       stat:

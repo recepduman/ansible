@@ -5,4 +5,4 @@
     - name: Download SQL Patch from the local FTP
       get_url:
         url: ftp://ansible_ftp:Avis3101@192.168.229.231/files/sqlserver2019-kb5011644-x64_a38427fc9ed638fdbc0011be2c71a7b32f811b9e.exe
-        dest: /home/sauser/ftp/downloaded/
+        dest: /data/downloaded/

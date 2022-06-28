@@ -4,8 +4,7 @@
   tasks:
     - name: Install only particular updates based on the KB numbers
       ansible.windows.win_updates:
-        category_name:
-          - *
+        category_names: '*'
         accept_list:
           - KB890830
           - KB5014353
